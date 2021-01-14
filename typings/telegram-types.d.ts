@@ -602,8 +602,6 @@ export interface ExtraUnban {
   only_if_banned?: Boolean
 }
 
-export type IncomingMessage = TT.Message
-
 export type MessageAudio = TT.Message.AudioMessage
 export type MessageDocument = TT.Message.DocumentMessage
 export type MessageGame = TT.Message.GameMessage
