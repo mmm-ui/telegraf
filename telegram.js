@@ -296,8 +296,8 @@ class Telegram extends ApiClient {
     })
   }
 
-  editMessageMedia (request = {}) {
-    return this.callApi('editMessageMedia', request)
+  editMessageMedia (payload = {}) {
+    return this.callApi('editMessageMedia', payload)
   }
 
   editMessageReplyMarkup (chatId, messageId, inlineMessageId, markup) {

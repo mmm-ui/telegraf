@@ -450,7 +450,8 @@ export declare class TelegrafContext {
    * @param request Request object (reqd more: https://core.telegram.org/bots/api#editmessagemedia)
    */
   editMessageMedia(
-    request: tt.EditMessageMediaRequest
+    media: tt.MessageMedia,
+    extra?: tt.ExtraEditMedia
   ): Promise<tt.Message | boolean>
 
   /**

@@ -162,7 +162,7 @@ export declare class Telegram extends ApiClient {
    * @param request Request object (reqd more: https://core.telegram.org/bots/api#editmessagemedia)
    */
   editMessageMedia(
-    request: tt.EditMessageMediaRequest
+    payload: tt.EditMessageMediaPayload
   ): Promise<tt.Message | boolean>
 
   /**

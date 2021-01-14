@@ -62,11 +62,9 @@ bot.command('edit_media', (ctx) => ctx.replyWithAnimation(AnimationUrl1, Extra.m
 )))
 
 bot.action('swap_media', (ctx) => ctx.editMessageMedia({
-    media: {
-      type: 'animation',
-      media: AnimationUrl2,
-    },
-  }),
-)
+    type: 'animation',
+    media: AnimationUrl2,
+  }
+))
 
 bot.launch()
