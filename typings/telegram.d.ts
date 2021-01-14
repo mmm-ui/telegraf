@@ -157,6 +157,15 @@ export declare class Telegram extends ApiClient {
   ): Promise<tt.Message | boolean>
 
   /**
+   * Use this method to edit animation, audio, document, photo, or video messages.
+   * @returns On success, if the edited message was sent by the bot, the edited Message is returned, otherwise True is returned.
+   * @param request Request object (reqd more: https://core.telegram.org/bots/api#editmessagemedia)
+   */
+  editMessageMedia(
+    request: tt.EditMessageMediaRequest
+  ): Promise<tt.Message | boolean>
+
+  /**
    * Use this method to edit live location messages
    * @param latitude Latitude of location
    * @param longitude Longitude of location

@@ -144,6 +144,14 @@ export interface InputMediaDocument {
  parse_mode?: string
 }
 
+export interface EditMessageMediaRequest {
+  chat_id?: number | string
+  message_id?: number
+  inline_message_id?: string
+  media: MessageMedia
+  reply_markup?: ExtraReplyMarkup
+ }
+
 export interface StickerData {
   png_sticker: string | Buffer
   emojis: string

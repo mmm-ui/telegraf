@@ -239,20 +239,17 @@ class TelegrafContext {
   editMessageMedia (media, extra) {
     this.assert(this.callbackQuery || this.inlineMessageId, 'editMessageMedia')
     return this.inlineMessageId
-      ? this.telegram.editMessageMedia(
-        undefined,
-        undefined,
-        this.inlineMessageId,
-        media,
-        extra
-      )
-      : this.telegram.editMessageMedia(
-        this.chat.id,
-        this.callbackQuery.message.message_id,
-        undefined,
-        media,
-        extra
-      )
+      ? this.telegram.editMessageMedia({
+          inline_message_id: this.inlineMessageId,
+          media,
+          reply_markup: extra.reply_markup ? extra.reply_markup : extra
+        })
+      : this.telegram.editMessageMedia({
+          chat_id: this.chat.id,
+          message_id: this.callbackQuery.message.message_id,
+          media,
+          reply_markup: extra.reply_markup ? extra.reply_markup : extra
+        })
   }
 
   editMessageReplyMarkup (markup) {
