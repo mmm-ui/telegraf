@@ -1,4 +1,5 @@
 import * as TT from 'typegram'
+export * from 'typegram'
 
 export type ParseMode = 'Markdown' | 'MarkdownV2' | 'HTML'
 
