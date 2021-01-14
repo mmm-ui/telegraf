@@ -1,4 +1,3 @@
-const replicators = require('./core/replicators')
 const ApiClient = require('./core/network/client')
 
 class Telegram extends ApiClient {
@@ -414,19 +413,10 @@ class Telegram extends ApiClient {
   }
 
   sendCopy (chatId, message, extra) {
-    if (!message) {
+    if (!message || !message.chat || !message.chat.id || message.message_id) {
       throw new Error('Message is required')
     }
-    const type = Object.keys(replicators.copyMethods).find((type) => message[type])
-    if (!type) {
-      throw new Error('Unsupported message type')
-    }
-    const opts = {
-      chat_id: chatId,
-      ...replicators[type](message),
-      ...extra
-    }
-    return this.callApi(replicators.copyMethods[type], opts)
+    return this.copyMessage(chatId, message.chat.id, message.message_id, extra)
   }
 
   copyMessage (chatId, fromChatId, messageId, extra) {
