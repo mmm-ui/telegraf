@@ -286,6 +286,7 @@ class Telegram extends ApiClient {
   }
 
   editMessageCaption (chatId, messageId, inlineMessageId, caption, extra = {}) {
+    // todo: deprecation warning about Markup being passed instead of extra
     return this.callApi('editMessageCaption', {
       caption,
       chat_id: chatId,
@@ -298,6 +299,7 @@ class Telegram extends ApiClient {
   }
 
   editMessageMedia (chatId, messageId, inlineMessageId, media, extra = {}) {
+    // todo: deprecation warning about Markup being passed instead of extra
     return this.callApi('editMessageMedia', {
       chat_id: chatId,
       message_id: messageId,
