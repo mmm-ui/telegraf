@@ -144,12 +144,11 @@ export interface InputMediaDocument {
  parse_mode?: string
 }
 
-export interface EditMessageMediaPayload {
+export interface EditMessageMediaPayload extends ExtraEditMedia {
   chat_id?: number | string
   message_id?: number
   inline_message_id?: string
   media: MessageMedia
-  reply_markup?: ExtraEditMedia
  }
 
 export interface StickerData {
