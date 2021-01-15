@@ -129,7 +129,7 @@ that you may have encountered such as Koa, Ruby's Rack, Connect.
 Middleware is an essential part of any modern framework.
 It allows you to modify requests and responses as they pass between the Telegram and your bot.
 
-You can imagine middleware as a chain of logic connection your bot to the Telegram request.
+You can imagine a middleware as a chain of logic connection your bot to the Telegram request.
 
 Middleware normally takes two parameters (ctx, next), `ctx` is the context for one Telegram update, 
 `next` is a function that is invoked to execute the downstream middleware. 
@@ -159,13 +159,13 @@ bot.launch()
 - [Natural language processing via wit.ai](https://github.com/telegraf/telegraf-wit)
 - [Natural language processing via recast.ai](https://github.com/telegraf/telegraf-recast)
 - [Multivariate and A/B testing](https://github.com/telegraf/telegraf-experiments)
-- [Powerfull bot stats via Mixpanel](https://github.com/telegraf/telegraf-mixpanel)
+- [Powerful bot stats via Mixpanel](https://github.com/telegraf/telegraf-mixpanel)
 - [statsd integration](https://github.com/telegraf/telegraf-statsd)
 - [and more...](https://www.npmjs.com/search?q=telegraf-)
 
 #### Error handling
 
-By default Telegraf will print all errors to `stderr` and rethrow error.
+By default, Telegraf will print all errors to `stderr` and rethrow error.
 
 To perform custom error-handling logic use following snippet:
 
@@ -196,7 +196,7 @@ Context is created per request and contains following props:
 | `[ctx.chosenInlineResult]` | Received inline query result |
 | `[ctx.callbackQuery]` | Received callback query |
 | `[ctx.shippingQuery]` | Shipping query |
-| `[ctx.preCheckoutQuery]` | Precheckout query |
+| `[ctx.preCheckoutQuery]` | Pre-checkout query |
 | `[ctx.channelPost]` | New incoming channel post of any kind — text, photo, sticker, etc. |
 | `[ctx.editedChannelPost]` | New version of a channel post that is known to the bot and was edited |
 | `[ctx.poll]` | New version of a anonymous poll that is known to the bot and was changed |
@@ -434,7 +434,7 @@ bot.launch()
 
 **Note: For persistent sessions you can use any of [`telegraf-session-*`](https://www.npmjs.com/search?q=telegraf-session) middleware.**
 
-**Tip: To use same session in private chat with bot and in inline mode, use following session key resolver:**
+**Tip: To use same session in private chat with the bot and in inline mode, use following session key resolver:**
 
 ```js
 {
@@ -628,7 +628,7 @@ Supported file sources:
 - `Buffer`
 - `ReadStream`
 
-Also you can provide optional name of file as `filename`.
+Also, you can provide an optional name of file as `filename`.
 
 ```js
 bot.on('message', (ctx) => {
@@ -719,7 +719,7 @@ telegraf [opts] <bot-file>
 
 ##### Telegraf Module example
 
-Create module with name `bot.js` and following content:
+Create a module with name `bot.js` and following content:
 
 ```js
 const Composer = require('telegraf/composer')
@@ -1042,7 +1042,7 @@ Compose `middlewares` returning a fully valid middleware comprised of all those 
 
 ##### Telegraf.mount
 
-Generates middleware for handling provided update types.
+Generates a middleware for handling provided update types.
 
 `Telegraf.mount(updateTypes, ...middleware) => function`
 
@@ -1053,7 +1053,7 @@ Generates middleware for handling provided update types.
 
 ##### Telegraf.hears
 
-Generates middleware for handling `text` messages with regular expressions.
+Generates a middleware for handling `text` messages with regular expressions.
 
 `Telegraf.hears(triggers, ...middleware) => function`
 
@@ -1064,7 +1064,7 @@ Generates middleware for handling `text` messages with regular expressions.
 
 ##### Telegraf.action
 
-Generates middleware for handling `callbackQuery` data with regular expressions.
+Generates a middleware for handling `callbackQuery` data with regular expressions.
 
 `Telegraf.action(triggers, ...middleware) => function`
 
@@ -1075,7 +1075,7 @@ Generates middleware for handling `callbackQuery` data with regular expressions.
 
 ##### Telegraf.inlineQuery
 
-Generates middleware for handling `inlineQuery` data with regular expressions.
+Generates a middleware for handling `inlineQuery` data with regular expressions.
 
 `Telegraf.inlineQuery(triggers, ...middleware) => function`
 
@@ -1092,13 +1092,13 @@ Generates pass thru middleware.
 
 ##### Telegraf.safePassThru
 
-Generates safe version of pass thru middleware.
+Generates a safe version of pass thru middleware.
 
 `Telegraf.safePassThru() => function`
 
 ##### Telegraf.optional
 
-Generates optional middleware.
+Generates an optional middleware.
 
 `Telegraf.optional(test, ...middleware) => function`
 
@@ -1109,7 +1109,7 @@ Generates optional middleware.
 
 ##### Telegraf.acl
 
-Generates middleware for provided users only.
+Generates a middleware for provided users only.
 
 `Telegraf.acl(userId, ...middleware) => function`
 
@@ -1153,7 +1153,7 @@ Generates branch middleware.
 
 ##### Telegraf.email
 
-Generates middleware for handling messages with `email` entity.
+Generates a middleware for handling messages with `email` entity.
 
 `Telegraf.email(triggers, ...middleware) => function`
 
@@ -1164,7 +1164,7 @@ Generates middleware for handling messages with `email` entity.
 
 ##### Telegraf.hashtag
 
-Generates middleware for handling messages with `hashtag` entity.
+Generates a middleware for handling messages with `hashtag` entity.
 
 `Telegraf.hashtag(triggers, ...middleware) => function`
 
@@ -1175,7 +1175,7 @@ Generates middleware for handling messages with `hashtag` entity.
 
 ##### Telegraf.cashtag
 
-Generates middleware for handling messages with `cashtag` entity.
+Generates a middleware for handling messages with `cashtag` entity.
 
 `Telegraf.cashtag(triggers, ...middleware) => function`
 
@@ -1186,7 +1186,7 @@ Generates middleware for handling messages with `cashtag` entity.
 
 ##### Telegraf.url
 
-Generates middleware for handling messages with `url` entity.
+Generates a middleware for handling messages with `url` entity.
 
 `Telegraf.url(triggers, ...middleware) => function`
 
@@ -1197,7 +1197,7 @@ Generates middleware for handling messages with `url` entity.
 
 ##### Telegraf.phone
 
-Generates middleware for handling messages with `phone` entity.
+Generates a middleware for handling messages with `phone` entity.
 
 `Telegraf.phone(triggers, ...middleware) => function`
 
@@ -1208,7 +1208,7 @@ Generates middleware for handling messages with `phone` entity.
 
 ##### Telegraf.textLink
 
-Generates middleware for handling messages with `text_link` entity.
+Generates a middleware for handling messages with `text_link` entity.
 
 `Telegraf.textLink(triggers, ...middleware) => function`
 
@@ -1219,7 +1219,7 @@ Generates middleware for handling messages with `text_link` entity.
 
 ##### Telegraf.textMention
 
-Generates middleware for handling messages with `text_mention` entity.
+Generates a middleware for handling messages with `text_mention` entity.
 
 `Telegraf.textMention(triggers, ...middleware) => function`
 
@@ -1938,7 +1938,7 @@ Sends text message.
 
 ##### sendPhoto
 
-Sends photo.
+Sends a photo.
 
 `telegram.sendPhoto(chatId, photo, [extra]) => Promise`
 
@@ -2059,7 +2059,7 @@ Sends voice.
 
 ##### sendPoll
 
-Sends anonymous poll.
+Sends a poll.
 
 `telegram.sendPoll(chatId, question, options, [extra]) => Promise`
 
@@ -2160,7 +2160,7 @@ Use this method to unban a previously kicked user in a supergroup.
 
 ##### setPassportDataErrors
 
-Informs a user that some of the Telegram Passport elements they provided contains errors. 
+Informs a user that some Telegram Passport elements they provided contains errors. 
 The user will not be able to re-submit their Passport to you 
 until the errors are fixed (the contents of the field for which you returned the error must change).
 
