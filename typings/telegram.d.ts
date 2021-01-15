@@ -134,10 +134,27 @@ export declare class Telegram extends ApiClient {
    * @param extra Extra params
    */
   editMessageCaption(
-    chatId?: number | string,
-    messageId?: number,
-    inlineMessageId?: string,
-    caption?: string,
+    chatId: number | string,
+    messageId: number,
+    inlineMessageId: void,
+    caption: string,
+    extra?: tt.ExtraEditCaption
+  ): Promise<tt.Message | boolean>
+
+  /**
+   * Use this method to edit captions of messages sent by the bot or via the bot (for inline bots).
+   * On success, if edited message is sent by the bot, the edited Message is returned, otherwise True is returned.
+   * @param chatId Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+   * @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+   * @param inlineMessageId Required if chatId and messageId are not specified. Identifier of the inline message
+   * @param caption New caption of the message
+   * @param extra Extra params
+   */
+  editMessageCaption(
+    chatId: void,
+    messageId: void,
+    inlineMessageId: string,
+    caption: string,
     extra?: tt.ExtraEditCaption
   ): Promise<tt.Message | boolean>
 
@@ -150,10 +167,25 @@ export declare class Telegram extends ApiClient {
    * @param markup Markup of inline keyboard
    */
   editMessageReplyMarkup(
-    chatId?: number | string,
-    messageId?: number,
-    inlineMessageId?: string,
-    markup?: tt.InlineKeyboardMarkup
+    chatId: number | string,
+    messageId: number,
+    inlineMessageId: void,
+    markup: tt.InlineKeyboardMarkup
+  ): Promise<tt.Message | boolean>
+
+  /**
+   * Use this method to edit only the reply markup of messages sent by the bot or via the bot (for inline bots).
+   * On success, if edited message is sent by the bot, the edited Message is returned, otherwise True is returned.
+   * @param chatId Required if inlineMessageId is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+   * @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+   * @param inlineMessageId Required if chatId and messageId are not specified. Identifier of the inline message
+   * @param markup Markup of inline keyboard
+   */
+  editMessageReplyMarkup(
+    chatId: void,
+    messageId: void,
+    inlineMessageId: string,
+    markup: tt.InlineKeyboardMarkup
   ): Promise<tt.Message | boolean>
 
   /**
@@ -166,9 +198,26 @@ export declare class Telegram extends ApiClient {
    * @param extra Extra params
    */
   editMessageMedia(
-    chatId: number | string | void,
-    messageId: number | void,
-    inlineMessageId: string | void,
+    chatId: number | string,
+    messageId: number,
+    inlineMessageId: void,
+    media: tt.MessageMedia,
+    extra?: tt.ExtraEditMessageMedia
+  ): Promise<tt.Message | boolean>
+
+  /**
+   * Use this method to edit animation, audio, document, photo, or video messages.
+   * @returns On success, if the edited message was sent by the bot, the edited Message is returned, otherwise True is returned.
+   * @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+   * @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+   * @param inlineMessageId Required if chatId and messageId are not specified. Identifier of the inline message
+   * @param media New media of message
+   * @param extra Extra params
+   */
+  editMessageMedia(
+    chatId: void,
+    messageId: void,
+    inlineMessageId: string,
     media: tt.MessageMedia,
     extra?: tt.ExtraEditMessageMedia
   ): Promise<tt.Message | boolean>
@@ -184,9 +233,28 @@ export declare class Telegram extends ApiClient {
    * @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned.
    */
   editMessageLiveLocation(
-    chatId: number | string | void,
-    messageId: number | void,
-    inlineMessageId: string | void,
+    chatId: number | string,
+    messageId: number,
+    inlineMessageId: void,
+    latitude: number,
+    longitude: number,
+    extra?: tt.ExtraEditLocation
+  ): Promise<tt.MessageLocation | boolean>
+
+  /**
+   * Use this method to edit live location messages
+   * @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+   * @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+   * @param inlineMessageId Required if chatId and messageId are not specified. Identifier of the inline message
+   * @param latitude Latitude of location
+   * @param longitude Longitude of location
+   * @param extra Extra params
+   * @returns On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned.
+   */
+  editMessageLiveLocation(
+    chatId: void,
+    messageId: void,
+    inlineMessageId: string,
     latitude: number,
     longitude: number,
     extra?: tt.ExtraEditLocation
@@ -201,9 +269,24 @@ export declare class Telegram extends ApiClient {
    * @returns On success, if the message was sent by the bot, the sent Message is returned, otherwise True is returned.
    */
   stopMessageLiveLocation(
-    chatId: number | string | void,
-    messageId: number | void,
-    inlineMessageId: string | void,
+    chatId: number | string,
+    messageId: number,
+    inlineMessageId: void,
+    extra?: tt.ExtraStopLiveLocation
+  ): Promise<tt.MessageLocation | boolean>
+
+  /**
+   * Use this method to stop updating a live location message before live_period expires.
+   * @param chatId Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+   * @param messageId Required if inlineMessageId is not specified. Identifier of the sent message
+   * @param inlineMessageId Required if chatId and messageId are not specified. Identifier of the inline message
+   * @param extra Extra params
+   * @returns On success, if the message was sent by the bot, the sent Message is returned, otherwise True is returned.
+   */
+  stopMessageLiveLocation(
+    chatId: void,
+    messageId: void,
+    inlineMessageId: string,
     extra?: tt.ExtraStopLiveLocation
   ): Promise<tt.MessageLocation | boolean>
 
