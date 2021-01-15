@@ -447,7 +447,8 @@ export declare class TelegrafContext {
   /**
    * Use this method to edit animation, audio, document, photo, or video messages.
    * @returns On success, if the edited message was sent by the bot, the edited Message is returned, otherwise True is returned.
-   * @param request Request object (reqd more: https://core.telegram.org/bots/api#editmessagemedia)
+   * @param media A JSON-serialized object for a new media content of the message
+   * @param extra Extra parameters for editMessageMedia
    */
   editMessageMedia(
     media: tt.MessageMedia,

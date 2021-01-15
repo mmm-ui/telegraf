@@ -159,7 +159,7 @@ export declare class Telegram extends ApiClient {
   /**
    * Use this method to edit animation, audio, document, photo, or video messages.
    * @returns On success, if the edited message was sent by the bot, the edited Message is returned, otherwise True is returned.
-   * @param request Request object (reqd more: https://core.telegram.org/bots/api#editmessagemedia)
+   * @param payload Request object (reqd more: https://core.telegram.org/bots/api#editmessagemedia)
    */
   editMessageMedia(
     payload: tt.EditMessageMediaPayload
