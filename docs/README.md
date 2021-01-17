@@ -2154,13 +2154,89 @@ Informs a user that some Telegram Passport elements they provided contains error
 | ---  | --- | --- |
 | [errors] | `PassportElementError[]` | An array describing the errors |
 
-### Extra
-
-Telegram message options helper, [see examples](https://github.com/telegraf/telegraf/tree/develop/docs/examples/).
-
 ### Markup
 
-Telegram markup helper, [see examples](https://github.com/telegraf/telegraf/tree/develop/docs/examples/).
+Telegram reply markup builder.
+
+#### Property setters
+
+| Method           | Param (default)  | `reply_markup` property |
+| ---------------- | ---------------- | ----------------------- |
+| `forceReply`     | Boolean (true)   | `force_reply`           |
+| `removeKeyboard` | Boolean (true)   | `disable_notification`  |
+| `selective`      | Boolean (true)   | `selective`             |
+| `resize`         | Boolean (true)   | `resize_keyboard`       |
+| `oneTime`        | Boolean (true)   | `one_time_keyboard`     |
+| `keyboard`       | buttons, options | `keyboard`              |
+| `inlineKeyboard` | buttons, options | `inline_keyboard`       |
+
+`Markup.keyboard` and `Markup.inlineKeyboard` accepts as arguments buttons array and options object.
+
+#### Button methods
+
+| Method                      | Params                | Button                                                                            |
+| --------------------------- | --------------------- | --------------------------------------------------------------------------------- |
+| `button`                    | text, hide            | [KeyboardButton](https://core.telegram.org/bots/api#keyboardbutton)               |
+| `contactRequestButton`      | text, hide            | [KeyboardButton](https://core.telegram.org/bots/api#keyboardbutton)               |
+| `locationRequestButton`     | text, hide            | [KeyboardButton](https://core.telegram.org/bots/api#keyboardbutton)               |
+| `urlButton`                 | text, url, hide       | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+| `callbackButton`            | text, data, hide      | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+| `switchToChatButton`        | text, value, hide     | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+| `switchToCurrentChatButton` | text, value, hide     | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+| `gameButton`                | text, hide            | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+| `payButton`                 | text, hide            | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+| `loginButton`               | text, url, opts, hide | [`InlineKeyboardButton`](https://core.telegram.org/bots/api#inlinekeyboardbutton) |
+
+`Markup` usage examples can be found [here](examples/keyboard-bot.js).
+
+### Extra
+
+`Extra` helps to pass optional parameteres for Telegram methods.
+
+| Method          | Param (default) | Telegram option            |
+| --------------- | --------------- | -------------------------- |
+| `inReplyTo`     | messageId       | `reply_to_message_id`      |
+| `notifications` | Boolean (true)  | `disable_notification`     |
+| `webPreview`    | Boolean (true)  | `disable_web_page_preview` |
+| `HTML`          | Boolean (true)  | `parse_mode`               |
+| `markdown`      | Boolean (true)  | `parse_mode`               |
+| `markdownV2`    | Boolean (true)  | `parse_mode`               |
+| `caption`       | String ('')     | `caption`                  |
+| `markup`        | See below       | `reply_markup`             |
+
+`Extra.HTML` accepts as an argument either reply_markup object (see Telegram Bot API Docs for more info) or function which will be called with `Markup` object passed.
+
+```js
+// passing function to Extra.markup
+bot.command('markup', (ctx) => {
+  return ctx.reply('Special buttons keyboard', Extra.markup((markup) => {
+    return markup.resize()
+      .keyboard([
+        markup.contactRequestButton('Send contact'),
+        markup.locationRequestButton('Send location')
+      ])
+  }))
+})
+```
+
+`Extra.load(opts)` allows you to pass all the options you wish as properties of Javascript object.
+
+If you want to pass multiple options with `Extra`, just chain the method calls.
+
+Usage example:
+```js
+// with extra
+bot.command('extra', (ctx) => {
+  return ctx.reply('<b>Hello HTML.', Extra.HTML().notifications(false))
+})
+
+// without extra
+bot.command('noextra', (ctx) => {
+  return ctx.reply('<b>Hello HTML</b>', { caption: 'cool stuff', parse_mode: 'HTML')
+})
+```
+
+More examples on how to use Extra can be found [here](examples/keyboard-bot.js).
 
 ### Stage
 
