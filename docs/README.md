@@ -2204,7 +2204,7 @@ Telegram reply markup builder.
 | `caption`       | String ('')     | `caption`                  |
 | `markup`        | See below       | `reply_markup`             |
 
-`Extra.HTML` accepts as an argument either reply_markup object (see Telegram Bot API Docs for more info) or function which will be called with `Markup` object passed.
+`Extra.markup` accepts as an argument either [Markup](### Markup) object (see Telegram Bot API Docs for more info) or function which will be called with `Markup` object passed.
 
 ```js
 // passing function to Extra.markup
